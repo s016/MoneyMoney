@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  app:
+    build: ./
+    volumes:
+      - .:/MoneyMoney
+      - public-data:/MoneyMoney/public
+      - tmp-data:/MoneyMoney/tmp
+      - log-data:/MoneyMoney/log
+    env_file:
+      - ./environments/db.env
+    depends_on:
+      - db
+    tty: true
+    stdin_open: true
+
+  db:
+    image: mysql:5.7
+    env_file:
+      - ./environments/db.env
+    volumes:
+      - db-data:/var/lib/mysql
+
+  web:
+    build: ./containers/nginx
+    volumes:
+      - public-data:/MoneyMoney/public
+      - tmp-data:/MoneyMoney/tmp
+    ports:
+      - 80:80
+    depends_on:
+      - app
+
+volumes:
+  public-data:
+  tmp-data:
+  log-data:
+  db-data:
