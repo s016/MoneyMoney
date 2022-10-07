@@ -18,15 +18,18 @@
     <div class="container-fluid">
     <a class="navbar-brand" href="#">MoneyMoney</a>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
       <div class="navbar-nav">
         <% if user_signed_in? %>
-          <a class="nav-link active" aria-current="page" href="#">収入・支出・お金の場所を追加</a>
+          <a class="nav-link" href="#">収入・支出・お金の場所を追加</a>
           <a class="nav-link" href="#">予測の結果</a>
           <a class="nav-link" href="#">登録一覧</a>                
           <a class="nav-link" href="#">振返り</a>
+          <span class="nav-link"><%= current_user.name %> </span>
         <% else %>
         <% end %>
       </div>
+    
     </div>
   </div>
   </nav>
