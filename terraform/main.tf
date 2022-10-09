@@ -332,3 +332,13 @@ resource "aws_cloudwatch_log_group" "for_ecs" {
   retention_in_days = 180
 }
 #=============================================================
+#RDS用のセキュリティグループ、RDSのみ無料枠の利用のため手動で作成
+#http通信のセキュリティグループ
+module "mysql_sg" {
+  source      = "./modules/security_group"
+  name        = "mysql-sg"
+  vpc_id      = aws_vpc.default.id
+  port        = "3306"
+  cidr_blocks = [aws_vpc.default.cidr_block]
+}
+#=============================================================

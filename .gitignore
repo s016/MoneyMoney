@@ -117,3 +117,4 @@ override.tf.json
 terraform.rc
 
 # End of https://www.toptal.com/developers/gitignore/api/terraform
+/config/credentials/production.key
