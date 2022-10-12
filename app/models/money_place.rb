@@ -1,4 +1,5 @@
 class MoneyPlace < ApplicationRecord
+  has_many :income_and_payments
   belongs_to :user
   validates :name, presence: true
   validates :date, presence: true

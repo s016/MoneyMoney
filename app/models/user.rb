@@ -4,4 +4,5 @@ class User < ApplicationRecord
   validates :name, length: {maximum:30}, presence: true
   has_many :items
   has_many :detail_items
+  has_many :income_and_payments
 end
