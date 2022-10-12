@@ -1,5 +1,5 @@
-class Item < ApplicationRecord
-  has_many :detail_items
+class DetailItem < ApplicationRecord
   belongs_to :user
+  belongs_to :item
   validates :name, presence: true
 end
