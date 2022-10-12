@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe MoneyPlace, type: :model do
-  let(:money_place) { create(:money_place) }
+  let(:money_place) { build(:money_place) }
   it "空白の名前は無効であること" do
     money_place[:name] = nil
     expect(money_place).to be_invalid
