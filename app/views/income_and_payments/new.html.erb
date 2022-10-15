@@ -1,0 +1,34 @@
+<%= form_with model: @income_and_payment, local: true do |f| %>
+  <div>
+    <div>
+      <%= f.label :item, "大項目" %>
+      <%= f.select :item_id, options_from_collection_for_select(Item.all, :id, :name),
+      { include_blank: true }, {} %>
+    </div>
+    <div>
+      <%= f.label :detai_item, "詳細項目" %>
+      <%= f.text_field :detail_item_id %>
+    </div>
+    <div>
+      <%= f.label :date, "日付" %>
+      <%= f.date_field :date %>
+    </div>
+    <div>
+      <%= f.label :month_loop, "毎月" %>
+      <%= f.check_box :month_loop %>
+    </div>
+    <div>
+      <%= f.label :amount, "金額" %>
+      <%= f.number_field :amount %>
+    </div>
+    <div>
+      <%= f.label :money_place, "お金の場所" %>
+      <%= f.select :money_place_id, options_from_collection_for_select(MoneyPlace.all, :id, :name),
+      { include_blank: true }, {} %>
+    </div>
+
+    <div>
+      <%= f.submit "登録する", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

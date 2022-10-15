@@ -4,4 +4,6 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'   
   }
+  
+  resources :income_and_payments
 end
