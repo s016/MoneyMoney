@@ -9,7 +9,14 @@ items.each do |item|
   Item.create!(user_id: 0, name: item)
 end
 
-#テスト用のお金の場所
+#動作確認用のお金の場所
 3.times do |n|
   user.money_places.create!(name: "test_money_place#{n}" , date: Date.today, amount: 100)
+end
+
+#動作確認用の詳細項目
+items.each do |item|
+  3.times do |n|
+    item.detail_items.create!(user_id: 0, name: "detail_#{item.name}#{n}")
+  end
 end
