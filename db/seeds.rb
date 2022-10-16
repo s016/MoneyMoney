@@ -15,6 +15,7 @@ end
 end
 
 #動作確認用の詳細項目
+items = Item.all
 items.each do |item|
   3.times do |n|
     item.detail_items.create!(user_id: 0, name: "detail_#{item.name}#{n}")

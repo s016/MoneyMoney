@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   }
   
   resources :income_and_payments
+
+  resources :items, only: [] do
+    resources :detail_items, only: :index
+  end
 end

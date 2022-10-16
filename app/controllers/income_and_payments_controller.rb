@@ -12,6 +12,8 @@ class IncomeAndPaymentsController < ApplicationController
     end
   end
 
+  
+
   private
     def income_and_payment_params
       params.require(:income_and_payment).permit(:item_id, :detail_item_id, :money_place_id, :date, :month_loop, :amount, :type)
