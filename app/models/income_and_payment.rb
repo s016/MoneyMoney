@@ -6,5 +6,5 @@ class IncomeAndPayment < ApplicationRecord
   validates :date, presence: true
   validates :month_loop, presence: true
   validates :amount, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  validates :type, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 2 }
+  validates :income_or_payment, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 2 }
 end
