@@ -12,7 +12,9 @@ class IncomeAndPaymentsController < ApplicationController
     end
   end
 
-  
+  def select_item
+    @detail_items = DetailItem.where(item_id: params[:item_id])    
+  end
 
   private
     def income_and_payment_params

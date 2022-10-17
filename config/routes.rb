@@ -5,9 +5,11 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'   
   }
   
-  resources :income_and_payments
-
-  resources :items, only: [] do
-    resources :detail_items, only: :index
+  resources :income_and_payments do
+    collection do 
+      get :select_item
+    end
   end
+
+  resources :detail_items, only: :index
 end
