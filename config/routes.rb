@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :money_places, onli: [:index, :new, :create]
   resources :detail_items, only: :index
 end

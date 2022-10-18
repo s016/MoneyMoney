@@ -1,0 +1,24 @@
+<%= render 'layouts/registration_tab' %>
+
+<div class="tab-pane">
+  <h2>お金の場所の登録</h2>
+  <%= form_with model: @money_place, local: true do |f| %>
+    <div>
+      <div>
+        <%= f.label :name, "名前" %>
+        <%= f.text_field :name %>
+      </div>
+      <div>
+        <%= f.label :date, "日付" %>
+        <%= f.date_field :date %>
+      </div>
+      <div>
+        <%= f.label :amount, "金額" %>
+        <%= f.number_field :amount%>
+      </div>
+      <div>
+        <%= f.submit "登録する", class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

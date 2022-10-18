@@ -1,19 +1,7 @@
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">収入・支払</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">お金の場所</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">詳細項目</a>
-  </li>
-</ul>
-
-<div class="tab-content">
-  <div class="tab-pane active">
+<%= render 'layouts/registration_tab' %>
+  <div class="tab-pane">
+    <h2>収入・支払の登録</h2>
     <%= form_with model: @income_and_payment, remote: true do |f| %>
-      <div>
           <div>
             <%= f.label :type, "収入" %>
             <%= f.radio_button :income_or_payment, 1 %>
@@ -52,10 +40,3 @@
     <% end %>
     <%= javascript_pack_tag 'income_and_payments/new' %>
   </div>
-  <div class="tab-pane">
-
-  </div>
-  <div class="tab-pane">
-
-  </div>
-</div>
