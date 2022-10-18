@@ -1,3 +1,12 @@
 <%= render 'layouts/registration_list_tab' %>
 
-<%= %>
+<% @money_places.each do |money_place| %>
+  <div>
+    <span>名前:</span>
+    <%= money_place.name %>
+    <span>日付:</span>
+    <%= money_place.date %>
+    <span>金額:</span>
+    <%= money_place.amount %>    
+  </div>
+<% end %>

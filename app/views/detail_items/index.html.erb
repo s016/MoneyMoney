@@ -1,0 +1,10 @@
+<%= render 'layouts/registration_list_tab' %>
+
+<% @detail_items.each do |detail_item| %>
+  <div>
+    <span>大項目:</span>
+    <%= detail_item.item.name %>
+    <span>詳細項目:</span>
+    <%= detail_item.name %>
+  </div>
+<% end %>

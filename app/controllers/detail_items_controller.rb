@@ -1,5 +1,6 @@
 class DetailItemsController < ApplicationController
   def index
+    @detail_items = current_user.detail_items
   end
   def new
     @detail_item = DetailItem.new

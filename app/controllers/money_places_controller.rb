@@ -1,6 +1,6 @@
 class MoneyPlacesController < ApplicationController
   def index
-    @money_places = MoneyPlace.all
+    @money_places = current_user.money_places
   end
   def new
     @money_place = MoneyPlace.new
