@@ -21,9 +21,9 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <% if user_signed_in? %>
-            <a class="nav-link" href="#">収入・支出・お金の場所を追加</a>
+            <%= link_to :収入・支出・お金の場所を追加,  new_income_and_payment_path, class: "nav-link"%>
             <a class="nav-link" href="#">予測の結果</a>
-            <a class="nav-link" href="#">登録一覧</a>                
+            <%= link_to :登録一覧, incomes_income_and_payments_path, class: "nav-link"%>
             <a class="nav-link" href="#">振返り</a>
             <span class="nav-link"><%= current_user.name %> </span>
           <% else %>

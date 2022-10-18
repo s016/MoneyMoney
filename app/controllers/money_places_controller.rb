@@ -1,4 +1,6 @@
 class MoneyPlacesController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @money_places = current_user.money_places
   end

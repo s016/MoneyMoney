@@ -1,4 +1,6 @@
 class DetailItemsController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @detail_items = current_user.detail_items
   end

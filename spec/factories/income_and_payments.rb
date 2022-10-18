@@ -7,6 +7,6 @@ FactoryBot.define do
     date { Date.today }
     month_loop { true }
     amount { 100 }
-    type { 1 }
+    income_or_payment { 1 }
   end
 end

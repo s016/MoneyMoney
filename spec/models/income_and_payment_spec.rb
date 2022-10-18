@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe IncomeAndPayment, type: :model do
+RSpec.describe IncomeAndPayment, income_or_payment: :model do
   let(:income_and_payment) { build(:income_and_payment) }
   it "空白の日付は無効であること" do
     income_and_payment[:date] = nil
@@ -23,19 +23,19 @@ RSpec.describe IncomeAndPayment, type: :model do
     expect(income_and_payment).to be_valid
   end
   it "収支タイプの空白は無効であること" do
-    income_and_payment[:type] = nil
+    income_and_payment[:income_or_payment] = nil
     expect(income_and_payment).to be_invalid
   end
   it "収支タイプの最小値は1であること" do
-    income_and_payment[:type] = 1
+    income_and_payment[:income_or_payment] = 1
     expect(income_and_payment).to be_valid
   end
   it "収支タイプの最大値は2であること" do
-    income_and_payment[:type] = 2
+    income_and_payment[:income_or_payment] = 2
     expect(income_and_payment).to be_valid
   end
   it "1と2以外の収支タイプは無効であること" do
-    income_and_payment[:type] = 3
+    income_and_payment[:income_or_payment] = 3
     expect(income_and_payment).to be_invalid
   end
 end

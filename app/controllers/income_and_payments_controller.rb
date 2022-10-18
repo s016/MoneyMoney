@@ -1,4 +1,6 @@
 class IncomeAndPaymentsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @income_and_payment = IncomeAndPayment.new
   end
