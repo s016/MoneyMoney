@@ -1,0 +1,16 @@
+<%= render 'layouts/registration_list_tab' %>
+
+<% @incomes.each do |income| %>
+  <div>
+    <span>大項目:</span>
+    <%= income.item.name %>
+    <span>詳細項目:</span>
+    <%= income.detail_item.name %>
+    <span>日付:</span>
+    <%= income.date %>
+    <span>金額:</span>
+    <%= income.amount %>    
+    <span>お金の場所:</span>
+    <%= income.money_place.name %>
+  </div>
+<% end %>

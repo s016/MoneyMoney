@@ -5,12 +5,14 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'   
   }
   
-  resources :income_and_payments do
+  resources :income_and_payments, only: [:new, :create] do
     collection do 
       get :select_item
+      get :incomes
+      get :payments
     end
   end
 
-  resources :money_places, onli: [:index, :new, :create]
-  resources :detail_items, only: :index
+  resources :money_places, only: [:index, :new, :create]
+  resources :detail_items, only: [:index, :new, :create]
 end

@@ -1,0 +1,20 @@
+<%= render 'layouts/registration_tab' %>
+
+<div class="tab-pane">
+  <h2>詳細項目の登録</h2>
+  <%= form_with model: @detail_item, local: true do |f| %>
+    <div>
+      <div>
+        <%= f.label :item, "大項目を選択する" %>
+        <%= f.select :item_id, options_from_collection_for_select(Item.all, :id, :name), { include_blank: true, selected: Item.all.ids }, { class: "select-parent" } %>
+      </div>
+      <div>
+        <%= f.label :name, "名前" %>
+        <%= f.text_field :name %>
+      </div>
+      <div>
+        <%= f.submit "登録する", class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

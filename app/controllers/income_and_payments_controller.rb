@@ -5,7 +5,11 @@ class IncomeAndPaymentsController < ApplicationController
   def create
     @income_and_payment = current_user.income_and_payments.build(income_and_payment_params)
     if @income_and_payment.save
-      redirect_to new_income_and_payment_url
+      if @income_and_payment.income_or_payment == 1
+        redirect_to incomes_income_and_payments_url
+      else
+        redirect_to payments_income_and_payments_url
+      end
     else
       render 'income_and_payments/new'
     end
@@ -13,6 +17,14 @@ class IncomeAndPaymentsController < ApplicationController
 
   def select_item
     @detail_items = DetailItem.where(item_id: params[:item_id])    
+  end
+
+  def incomes
+    @incomes = current_user.income_and_payments.where(income_or_payment: 1)
+  end
+
+  def payments
+    @payments = current_user.income_and_payments.where(income_or_payment: 2)
   end
 
   private
