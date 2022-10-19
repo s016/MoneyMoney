@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_17_070328) do
+ActiveRecord::Schema.define(version: 2022_10_19_015353) do
 
   create_table "detail_items", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2022_10_17_070328) do
     t.bigint "item_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "income_or_payment", null: false
     t.index ["item_id"], name: "index_detail_items_on_item_id"
     t.index ["user_id"], name: "index_detail_items_on_user_id"
   end
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(version: 2022_10_17_070328) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "income_or_payment", null: false
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
