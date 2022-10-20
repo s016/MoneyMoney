@@ -3,7 +3,9 @@ class IncomeAndPaymentsController < ApplicationController
 
   def new
     @income_and_payment = IncomeAndPayment.new
+
   end
+
   def create
     @income_and_payment = current_user.income_and_payments.build(income_and_payment_params)
     if @income_and_payment.save
@@ -17,8 +19,18 @@ class IncomeAndPaymentsController < ApplicationController
     end
   end
 
+  def select_incomes
+    @income_items = current_user.items.all.where(income_or_payment:1)
+    @income_detail_items = current_user.detail_items.where(item_id: 1)
+  end
+
+  def select_payments
+    @payment_items = current_user.items.all.where(income_or_payment:2)
+    @payment_detail_items = current_user.detail_items.where(item_id: 2)
+  end
+  
   def select_item
-    @detail_items = DetailItem.where(item_id: params[:item_id])    
+    @detail_items = current_user.detail_items.where(item_id: params[:item_id])
   end
 
   def incomes

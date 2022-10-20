@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   }
   
   resources :income_and_payments, only: [:new, :create] do
-    collection do 
+    collection do
+      get :select_incomes
+      get :select_payments 
       get :select_item
       get :incomes
       get :payments
