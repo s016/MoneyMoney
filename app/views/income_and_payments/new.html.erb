@@ -1,8 +1,13 @@
 <%= render 'layouts/registration_tab' %>
-  <div class="tab-pane">
+
+<div class="card registraion-flame">
+  <div class="card-header">
     <h2>収入・支払の登録</h2>
-    <%= form_with model: @income_and_payment, remote: true do |f| %>
-          <div>
+  </div>
+  <div class="card-body">
+    <div class="tab-pane">
+      <%= form_with model: @income_and_payment, remote: true do |f| %>
+        <div>
             <%= f.label :type, "収入" %>
             <%= f.radio_button :income_or_payment, IncomeAndPayment::INCOMES %>
             <%= f.label :type, "支払" %>
@@ -33,10 +38,11 @@
           <%= f.select :money_place_id, options_from_collection_for_select(MoneyPlace.all, :id, :name),
           { include_blank: true }, {} %>
         </div>
-        <div>
+        <div class="card-body">
           <%= f.submit "登録する", class: "btn btn-primary" %>
         </div>
-      </div>
-    <% end %>
-    <%= javascript_pack_tag 'income_and_payments/new' %>
+      <% end %>
+    </div>
   </div>
+</div>
+<%= javascript_pack_tag 'income_and_payments/new' %>

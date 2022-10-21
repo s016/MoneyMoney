@@ -1,4 +1,49 @@
-.card-body {
-  text-align: center;
-  background-color: #D6D9DD;
+/* ヘッダーの設定*/
+.sitename {
+  font-size: 30px;
 }
+
+.nav-link {
+  margin-right: 35px;
+}
+
+.login-user-name {
+  float: right
+}
+
+.container-fluid {
+  border-bottom: solid 1px #c8c7cc;
+}
+
+body a {
+  text-decoration: none;
+  color: #333;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.header {
+  margin-bottom: 70px;
+}
+
+/* ヘッダーの設定ここまで*/
+
+/* コンテンツの設定*/
+.main-content {
+  background-color: #fff;
+}
+
+.registraion-flame {
+  text-align: center;
+}
+
+.registraion-form {
+  padding: none;
+}
+
+/* コンテンツの設定 ここまで*/
+
+/* 全体の設定*/
+/* 全体の設定 ここまで*/
