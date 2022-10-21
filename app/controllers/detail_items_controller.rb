@@ -4,6 +4,7 @@ class DetailItemsController < ApplicationController
   def index
     @detail_items = current_user.detail_items
   end
+
   def new
     @detail_item = DetailItem.new
   end
@@ -17,8 +18,16 @@ class DetailItemsController < ApplicationController
     end
   end
 
+  def select_incomes
+    @income_items = Item.all.where(income_or_payment:1)
+  end
+
+  def select_payments
+    @payment_items = Item.all.where(income_or_payment:2)
+  end
+
   private
     def detail_item_params
-      params.require(:detail_item).permit(:user_id, :item_id, :name)
+      params.require(:detail_item).permit(:user_id, :item_id, :name, :income_or_payment)
     end
 end

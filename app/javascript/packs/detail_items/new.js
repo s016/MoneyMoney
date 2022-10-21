@@ -1,0 +1,1 @@
+require('detail_items/new')

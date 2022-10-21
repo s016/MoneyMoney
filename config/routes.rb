@@ -16,5 +16,11 @@ Rails.application.routes.draw do
   end
 
   resources :money_places, only: [:index, :new, :create]
-  resources :detail_items, only: [:index, :new, :create]
+  
+  resources :detail_items, only: [:index, :new, :create] do
+    collection do
+      get :select_incomes
+      get :select_payments 
+    end
+  end
 end
