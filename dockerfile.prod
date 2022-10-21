@@ -26,6 +26,8 @@ RUN bundle install
 RUN mkdir -p tmp/sockets
 RUN mkdir -p tmp/pids
 
+RUN yarn add jquery
+
 COPY . /MoneyMoney
 
 #本番環境の設定

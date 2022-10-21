@@ -24,6 +24,8 @@ COPY Gemfile.lock ./
 
 RUN bundle install
 
+RUN yarn add jquery
+
 RUN mkdir -p tmp/sockets
 
 COPY . /MoneyMoney
