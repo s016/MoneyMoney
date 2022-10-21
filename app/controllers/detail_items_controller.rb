@@ -11,7 +11,7 @@ class DetailItemsController < ApplicationController
 
   def create
     @detail_item = current_user.detail_items.build(detail_item_params)
-    if @detail_item.save!
+    if @detail_item.save
       redirect_to detail_items_url
     else
       render 'detail_items/new'
@@ -19,11 +19,11 @@ class DetailItemsController < ApplicationController
   end
 
   def select_incomes
-    @income_items = Item.all.where(income_or_payment:1)
+    @income_items = Item.all.where(income_or_payment: IncomeAndPayment::INCOMES)
   end
 
   def select_payments
-    @payment_items = Item.all.where(income_or_payment:2)
+    @payment_items = Item.all.where(income_or_payment: IncomeAndPayment::PAYMENTS)
   end
 
   private

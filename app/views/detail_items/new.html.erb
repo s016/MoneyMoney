@@ -6,9 +6,9 @@
     <div>
       <div>
         <%= f.label :type, "収入" %>
-        <%= f.radio_button :income_or_payment, 1 %>
+        <%= f.radio_button :income_or_payment, IncomeAndPayment::INCOMES %>
         <%= f.label :type, "支払" %>
-        <%= f.radio_button :income_or_payment, 2 %>
+        <%= f.radio_button :income_or_payment, IncomeAndPayment::PAYMENTS %>
       </div>
       <div>
         <%= f.label :item, "大項目を選択する" %>

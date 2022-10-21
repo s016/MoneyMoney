@@ -9,7 +9,7 @@ class IncomeAndPaymentsController < ApplicationController
   def create
     @income_and_payment = current_user.income_and_payments.build(income_and_payment_params)
     if @income_and_payment.save
-      if @income_and_payment.income_or_payment == 1
+      if @income_and_payment.income_or_payment == IncomeAndPayment::INCOMES
         redirect_to incomes_income_and_payments_url
       else
         redirect_to payments_income_and_payments_url
@@ -20,13 +20,13 @@ class IncomeAndPaymentsController < ApplicationController
   end
 
   def select_incomes
-    @income_items = current_user.items.all.where(income_or_payment:1)
-    @income_detail_items = current_user.detail_items.where(item_id: 1)
+    @income_items = Item.all.where(income_or_payment: IncomeAndPayment::INCOMES)
+    @income_detail_items = current_user.detail_items.where(item_id: IncomeAndPayment::INCOMES)
   end
 
   def select_payments
-    @payment_items = current_user.items.all.where(income_or_payment:2)
-    @payment_detail_items = current_user.detail_items.where(item_id: 2)
+    @payment_items = Item.all.where(income_or_payment: IncomeAndPayment::PAYMENTS)
+    @payment_detail_items = current_user.detail_items.where(item_id: IncomeAndPayment::PAYMENTS)
   end
   
   def select_item
@@ -34,11 +34,11 @@ class IncomeAndPaymentsController < ApplicationController
   end
 
   def incomes
-    @incomes = current_user.income_and_payments.where(income_or_payment: 1)
+    @incomes = current_user.income_and_payments.where(income_or_payment: IncomeAndPayment::INCOMES)
   end
 
   def payments
-    @payments = current_user.income_and_payments.where(income_or_payment: 2)
+    @payments = current_user.income_and_payments.where(income_or_payment: IncomeAndPayment::PAYMENTS)
   end
 
   private

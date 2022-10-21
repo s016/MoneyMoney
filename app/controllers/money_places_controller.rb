@@ -10,7 +10,7 @@ class MoneyPlacesController < ApplicationController
 
   def create
     @money_place = current_user.money_places.build(money_place_params)
-    if @money_place.save!
+    if @money_place.save
       redirect_to  money_places_url
     else
       render 'money_places/new'
