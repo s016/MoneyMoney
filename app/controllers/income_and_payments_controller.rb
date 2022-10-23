@@ -21,12 +21,12 @@ class IncomeAndPaymentsController < ApplicationController
 
   def select_incomes
     @income_items = Item.all.where(income_or_payment: IncomeAndPayment::INCOMES)
-    @income_detail_items = current_user.detail_items.where(item_id: IncomeAndPayment::INCOMES)
+    @income_detail_items = current_user.detail_items.where(income_or_payment: IncomeAndPayment::INCOMES)
   end
 
   def select_payments
     @payment_items = Item.all.where(income_or_payment: IncomeAndPayment::PAYMENTS)
-    @payment_detail_items = current_user.detail_items.where(item_id: IncomeAndPayment::PAYMENTS)
+    @payment_detail_items = current_user.detail_items.where(income_or_payment: IncomeAndPayment::PAYMENTS)
   end
   
   def select_item

@@ -19,7 +19,7 @@
       <div class="up-header">
         <%= link_to :MoneyMoney, root_path, class: "sitename"%>
         <% if user_signed_in? %>
-          <span class="login-user-name"><%= current_user.name %> </span>
+          <span class="login-user-name"><%= current_user.name %><%= link_to :ログアウト, destroy_user_session_path, method: :delete %></span>
         <% else %>
         <% end %>
       </div>
@@ -40,6 +40,10 @@
       </nav>
     </div>
     <!-- ヘッダーここまで -->
+    <!-- flashの表示 -->
+      <%= flash.each do |hogehoge| %>
+      <% end %>
+    <!-- flashの表示 -->
     <!-- メイン -->
     <div class="main-content">
       <div class="container">

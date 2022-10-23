@@ -29,9 +29,9 @@ ActiveRecord::Schema.define(version: 2022_10_22_232621) do
     t.bigint "detail_item_id", null: false
     t.bigint "money_place_id", null: false
     t.date "date", null: false
-    t.boolean "month_loop", null: false
+    t.boolean "month_loop", default: false, null: false
     t.integer "amount", null: false
-    t.integer "income_or_payment", default: 0, null: false
+    t.integer "income_or_payment", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["detail_item_id"], name: "index_income_and_payments_on_detail_item_id"
