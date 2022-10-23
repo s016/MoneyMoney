@@ -31,11 +31,11 @@
         </div>
         <div>
           <%= f.label :amount, "金額" %>
-          <%= f.number_field :amount %>
+          <%= f.number_field :amount, min: 0 %>
         </div>
         <div>
           <%= f.label :money_place, "お金の場所" %>
-          <%= f.select :money_place_id, options_from_collection_for_select(MoneyPlace.all, :id, :name),
+          <%= f.select :money_place_id, options_from_collection_for_select(current_user.money_places, :id, :name),
           { include_blank: true }, {} %>
         </div>
         <div class="card-body">
