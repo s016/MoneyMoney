@@ -1,5 +1,4 @@
 $('#income_and_payment_item_id').html('<%= j(options_for_select(@payment_items.pluck(:name, :id))) %>');
-<% if @payment_detail_items.blank? %>
-<% else %>
+<% if @payment_detail_items.present? %>
   $('#income_and_payment_detail_item_id').html('<%= j(options_for_select(@payment_detail_items.pluck(:name, :id), @payment_detail_items.first.name)) %>');
 <% end %>
