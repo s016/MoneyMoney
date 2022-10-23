@@ -1,0 +1,31 @@
+<%= render 'layouts/registration_tab' %>
+
+<div class="card registraion-flame">
+  <div class="card-header">
+      <h2>詳細項目の登録</h2>
+  </div>
+  <div class="card-body">
+    <div class="tab-pane">
+      <%= form_with model: @detail_item, remote: true do |f| %>
+        <div>
+          <%= f.label :type, "収入" %>
+          <%= f.radio_button :income_or_payment, IncomeAndPayment::INCOMES %>
+          <%= f.label :type, "支払" %>
+          <%= f.radio_button :income_or_payment, IncomeAndPayment::PAYMENTS %>
+        </div>
+        <div>
+          <%= f.label :item, "大項目を選択する" %>
+          <%= f.select :item_id, [], { class: "select-parent" } %>
+        </div>
+        <div>
+          <%= f.label :name, "名前" %>
+          <%= f.text_field :name %>
+        </div>
+        <div>
+          <%= f.submit "登録する", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+  <%= javascript_pack_tag 'detail_items/new' %>

@@ -10,7 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_06_012309) do
+ActiveRecord::Schema.define(version: 2022_10_22_232621) do
+
+  create_table "detail_items", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "income_or_payment", null: false
+    t.index ["item_id"], name: "index_detail_items_on_item_id"
+    t.index ["user_id"], name: "index_detail_items_on_user_id"
+  end
+
+  create_table "income_and_payments", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
+    t.bigint "detail_item_id", null: false
+    t.bigint "money_place_id", null: false
+    t.date "date", null: false
+    t.boolean "month_loop", default: false, null: false
+    t.integer "amount", null: false
+    t.integer "income_or_payment", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["detail_item_id"], name: "index_income_and_payments_on_detail_item_id"
+    t.index ["item_id"], name: "index_income_and_payments_on_item_id"
+    t.index ["money_place_id"], name: "index_income_and_payments_on_money_place_id"
+    t.index ["user_id"], name: "index_income_and_payments_on_user_id"
+  end
+
+  create_table "items", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "income_or_payment", null: false
+    t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "money_places", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name", null: false
+    t.date "date", null: false
+    t.integer "amount", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_money_places_on_user_id"
+  end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -25,4 +72,12 @@ ActiveRecord::Schema.define(version: 2022_10_06_012309) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "detail_items", "items"
+  add_foreign_key "detail_items", "users"
+  add_foreign_key "income_and_payments", "detail_items"
+  add_foreign_key "income_and_payments", "items"
+  add_foreign_key "income_and_payments", "money_places"
+  add_foreign_key "income_and_payments", "users"
+  add_foreign_key "items", "users"
+  add_foreign_key "money_places", "users"
 end

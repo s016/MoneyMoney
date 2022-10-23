@@ -1,0 +1,16 @@
+<%= render 'layouts/registration_list_tab' %>
+
+<% @payments.each do |payment| %>
+  <div>
+    <span>大項目:</span>
+    <%= payment.item.name %>
+    <span>詳細項目:</span>
+    <%= payment.detail_item.name %>
+    <span>日付:</span>
+    <%= payment.date %>
+    <span>金額:</span>
+    <%= payment.amount %>    
+    <span>お金の場所:</span>
+    <%= payment.money_place.name %>
+  </div>
+<% end %>
