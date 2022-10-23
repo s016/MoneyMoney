@@ -38,12 +38,14 @@
           </div>
         </div>
       </nav>
+      <!-- flashの表示 -->
+      <% flash.each do |message_type, message| %>
+        <%= message %>
+      <% end %>
+      <!-- flashの表示 -->
     </div>
     <!-- ヘッダーここまで -->
-    <!-- flashの表示 -->
-      <%= flash.each do |hogehoge| %>
-      <% end %>
-    <!-- flashの表示 -->
+
     <!-- メイン -->
     <div class="main-content">
       <div class="container">

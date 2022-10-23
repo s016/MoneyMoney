@@ -12,8 +12,10 @@ class DetailItemsController < ApplicationController
   def create
     @detail_item = current_user.detail_items.build(detail_item_params)
     if @detail_item.save
+      flash[:success] = "登録に成功しました。"
       redirect_to detail_items_url
     else
+      flash.now[:danger] = "登録に失敗しました。"
       render 'detail_items/new'
     end
   end

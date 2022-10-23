@@ -10,11 +10,14 @@ class IncomeAndPaymentsController < ApplicationController
     @income_and_payment = current_user.income_and_payments.build(income_and_payment_params)
     if @income_and_payment.save
       if @income_and_payment.income_or_payment == IncomeAndPayment::INCOMES
+        flash[:success] = "登録に成功しました。"
         redirect_to incomes_income_and_payments_url
       else
+        flash[:success] = "登録に成功しました。"        
         redirect_to payments_income_and_payments_url
       end
     else
+      flash.now[:danger] = "登録に失敗しました。"
       render 'income_and_payments/new'
     end
   end

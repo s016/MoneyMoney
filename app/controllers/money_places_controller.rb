@@ -12,8 +12,10 @@ class MoneyPlacesController < ApplicationController
   def create
     @money_place = current_user.money_places.build(money_place_params)
     if @money_place.save
+      flash[:success] = "登録に成功しました。"
       redirect_to  money_places_url
     else
+      flash.now[:danger] = "登録に失敗しました。"
       render 'money_places/new'
     end
   end
