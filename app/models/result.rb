@@ -24,9 +24,10 @@ class Result < ApplicationRecord
   def self.result_income_and_payment(income_or_payments)
     if income_or_payments.present?
       self.result_date.map do |day|
-        [day, income_or_payments.map do |income_or_payment|
-            self.monthly(income_or_payment).include?(day) ? income_or_payment.amount : nil
-        end
+        [
+          day, income_or_payments.map do |income_or_payment|
+            self.monthly(income_or_payment).include?(day) ? Hash[income_or_payment.item.name, income_or_payment.amount] : Hash[income_or_payment.item.name, nil]
+          end
         ]
       end.to_h
     end
