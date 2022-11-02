@@ -23,6 +23,8 @@ module MoneyMoney
         view_specs: false,
         helper_specs: false,
         routing_specs: false
-      end
+    end
+
+    config.i18n.default_locale = :ja
   end
 end

@@ -1,3 +1,10 @@
+/* 結果ページの設定*/
+.result-data li {
+  list-style: none;
+}
+
+/* 結果ページの設定ここまで*/
+
 /* ヘッダーの設定*/
 .sitename {
   font-size: 30px;

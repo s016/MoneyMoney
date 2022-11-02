@@ -23,4 +23,6 @@ Rails.application.routes.draw do
       get :select_payments 
     end
   end
+
+  resources :results, only: [:index]
 end
