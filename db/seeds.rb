@@ -27,30 +27,30 @@ items.each do |item|
   end
 end
 
-##動作確認用の収入
-#items = Item.where(income_or_payment: IncomeAndPayment::INCOMES)
-#3.times do |n|
-#  items.each do |item| 
-#    user.income_and_payments.create!(item_id: item.id, 
-#                                     detail_item_id: item.detail_items.first.id,
-#                                     money_place_id: user.money_places.first.id,
-#                                     month_loop: true,
-#                                     date: Date.today + n, amount: 100,
-#                                     income_or_payment: IncomeAndPayment::INCOMES
-#                                     )
-#  end
-#end
-#
-##動作確認用の支払
-#items = Item.where(income_or_payment: IncomeAndPayment::PAYMENTS)
-#3.times do |n|
-#  items.each do |item| 
-#    user.income_and_payments.create!(item_id: item.id, 
-#                                     detail_item_id: item.detail_items.first.id,
-#                                     money_place_id: user.money_places.first.id,
-#                                     month_loop: true,
-#                                     date: Date.today + n, amount: 100,
-#                                     income_or_payment: IncomeAndPayment::PAYMENTS
-#                                     )
-#  end
-#end
+#動作確認用の収入
+items = Item.where(income_or_payment: IncomeAndPayment::INCOMES)
+3.times do |n|
+  items.each do |item| 
+    user.income_and_payments.create!(item_id: item.id, 
+                                     detail_item_id: item.detail_items.first.id,
+                                     money_place_id: user.money_places.first.id,
+                                     month_loop: true,
+                                     date: Date.today + n, amount: 100,
+                                     income_or_payment: IncomeAndPayment::INCOMES
+                                     )
+  end
+end
+
+#動作確認用の支払
+items = Item.where(income_or_payment: IncomeAndPayment::PAYMENTS)
+3.times do |n|
+  items.each do |item| 
+    user.income_and_payments.create!(item_id: item.id, 
+                                     detail_item_id: item.detail_items.first.id,
+                                     money_place_id: user.money_places.first.id,
+                                     month_loop: true,
+                                     date: Date.today + n, amount: 100,
+                                     income_or_payment: IncomeAndPayment::PAYMENTS
+                                     )
+  end
+end
