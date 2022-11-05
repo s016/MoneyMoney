@@ -1,12 +1,24 @@
 <%= render 'layouts/registration_list_tab' %>
 
-<% @money_places.each do |money_place| %>
-  <div>
-    <span>名前:</span>
-    <%= money_place.name %>
-    <span>日付:</span>
-    <%= money_place.date %>
-    <span>金額:</span>
-    <%= money_place.amount %>    
-  </div>
-<% end %>
+<div class="regi-title">
+  <h2>お金の一覧</h2>
+</div>
+
+<table class="table table-striped regi-table">
+  <thead class="thead-lignt">
+    <tr>
+      <th class="table-title" scope="col">名前</th>
+      <th class="table-title" scope="col">日付</th>
+      <th class="table-title" scope="col">金額</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @money_places.each do |money_place| %>
+      <tr>
+        <td><%= money_place.name %></td>
+        <td><%= money_place.date %></td>
+        <td><%= money_place.amount %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

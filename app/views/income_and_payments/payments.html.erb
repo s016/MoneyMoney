@@ -1,16 +1,28 @@
 <%= render 'layouts/registration_list_tab' %>
 
-<% @payments.each do |payment| %>
-  <div>
-    <span>大項目:</span>
-    <%= payment.item.name %>
-    <span>詳細項目:</span>
-    <%= payment.detail_item.name %>
-    <span>日付:</span>
-    <%= payment.date %>
-    <span>金額:</span>
-    <%= payment.amount %>    
-    <span>お金の場所:</span>
-    <%= payment.money_place.name %>
-  </div>
-<% end %>
+<div class="regi-title">
+  <h2>登録した支払の一覧</h2>
+</div>
+
+<table class="table table-striped regi-table">
+  <thead class="thead-lignt">
+    <tr>
+      <th class="table-title" scope="col">大項目</th>
+      <th class="table-title" scope="col">詳細項目</th>
+      <th class="table-title" scope="col">日付</th>
+      <th class="table-title" scope="col">金額</th>
+      <th class="table-title" scope="col">お金の場所</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @payments.each do |payment| %>
+      <tr>
+        <td><%= payment.item.name %></td>
+        <td><%= payment.detail_item.name %></td>
+        <td><%= payment.date %></td>
+        <td><%= payment.amount %></td>
+        <td><%= payment.money_place.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

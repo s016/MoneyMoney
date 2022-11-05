@@ -1,10 +1,22 @@
 <%= render 'layouts/registration_list_tab' %>
 
-<% @detail_items.each do |detail_item| %>
-  <div>
-    <span>大項目:</span>
-    <%= detail_item.item.name %>
-    <span>詳細項目:</span>
-    <%= detail_item.name %>
-  </div>
-<% end %>
+<div class="regi-title">
+  <h2>登録した詳細項目の一覧</h2>
+</div>
+
+<table class="table table-striped regi-table">
+  <thead class="thead-lignt">
+    <tr>
+      <th class="table-title" scope="col">大項目</th>
+      <th class="table-title" scope="col">詳細項目</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @detail_items.each do |detail_item| %>
+      <tr>
+        <td><%= detail_item.item.name %></td>
+        <td><%= detail_item.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
