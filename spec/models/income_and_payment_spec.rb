@@ -6,10 +6,6 @@ RSpec.describe IncomeAndPayment, income_or_payment: :model do
     income_and_payment[:date] = nil
     expect(income_and_payment).to be_invalid
   end
-  it "毎月の繰り返しの空白は無効であること" do
-    income_and_payment[:month_loop] = nil
-    expect(income_and_payment).to be_invalid
-  end
   it "金額の空白は無効であること" do
     income_and_payment[:amount] = nil
     expect(income_and_payment).to be_invalid

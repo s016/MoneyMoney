@@ -1,5 +1,5 @@
 class Result < ApplicationRecord
-
+  
   #計算の対象期間
   def self.result_date
     #お金の場所の登録された一番古い日付を取得、確定処理を実装したら、確定処理から3年間に変更する。
@@ -23,14 +23,14 @@ class Result < ApplicationRecord
   #計算対象の日付がmonthlyの結果にあればその金額を、なければnilを返す
   def self.result_income_and_payment(income_or_payments)
     if income_or_payments.present?
-      self.result_date.map do |day|
-        [
-          day, 
-          income_or_payments.map do |income_or_payment|
-            self.monthly(income_or_payment).include?(day) ? [income_or_payment.item.name, income_or_payment.amount] : [income_or_payment.item.name, nil]
-          end
-        ]
+      arr = {}
+      self.result_date.each do |result_date|
+        arr[result_date.to_s] = {}
+        Item.where(income_or_payment: income_or_payments.first.income_or_payment).each do |item|
+          arr[result_date.to_s][item.name] = IncomeAndPayment.where(user_id: income_or_payments.first.user.id, item_id: item.id, date: result_date).sum(:amount)
+        end
       end
+      return arr
     end
   end
 end

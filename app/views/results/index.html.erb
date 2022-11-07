@@ -1,37 +1,31 @@
-<% if @result_incomes.present? %>
+<% if @incomes.present? %>
   <div class="row flex-nowrap result-data">
     <ul class="col-sm-2">
       <li>大項目</li>
-        <% @incomes.each do |income| %>
-          <li><%= income.item.name %></li>
+    </ul>
+    <% Result.result_income_and_payment(@incomes).each do |date, income_values| %>
+      <ul class="col-sm-2">
+        <li><%= date %></li>
+        <% income_values.each do |item_name, income_value| %>
+          <li><%= income_value %></li>
         <% end %>
       </ul>
-      <% @result_incomes.each do |date, values| %>
-        <ul class="col-sm-2">
-          <li><%= date %></li>
-          <% values.each do | value | %>
-            <li><%= value %></li>
-          <% end %>
-        </ul>
-      <% end %>
+    <% end%>
   </div>
 <% end %>
 
-<% if @result_payments.present? %>
+<% if @incomes.present? %>
   <div class="row flex-nowrap result-data">
     <ul class="col-sm-2">
       <li>大項目</li>
-      <% @payments.each do |payment| %>
-        <li><%= payment.item.name %></li>
-      <% end %>
     </ul>
-    <% @result_payments.each do |date, values| %>
+    <% Result.result_income_and_payment(@payments).each do |date, income_values| %>
       <ul class="col-sm-2">
         <li><%= date %></li>
-        <% values.each do |value| %>
-          <li><%= value %></li>
+        <% income_values.each do |item_name, income_value| %>
+          <li><%= income_value %></li>
         <% end %>
       </ul>
-    <% end %>
+    <% end%>
   </div>
 <% end %>

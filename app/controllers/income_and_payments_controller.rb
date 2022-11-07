@@ -9,12 +9,31 @@ class IncomeAndPaymentsController < ApplicationController
   def create
     @income_and_payment = current_user.income_and_payments.build(income_and_payment_params)
     if @income_and_payment.save
-      if @income_and_payment.income_or_payment == IncomeAndPayment::INCOMES
-        flash[:success] = "登録に成功しました。"
-        redirect_to incomes_income_and_payments_url
+      if @income_and_payment.month_loop
+        35.times do |num|
+          current_user.income_and_payments.create(item_id: income_and_payment_params[:item_id],
+                                                  detail_item_id: income_and_payment_params[:detail_item_id],
+                                                  money_place_id: income_and_payment_params[:money_place_id],
+                                                  date: income_and_payment_params[:date].to_date.since(num.month),
+                                                  month_loop: income_and_payment_params[:month_loop],
+                                                  amount: income_and_payment_params[:amount],
+                                                  income_or_payment: income_and_payment_params[:income_or_payment],)
+        end
+        if @income_and_payment.income_or_payment == IncomeAndPayment::INCOMES
+          flash[:success] = "登録に成功しました。"
+          redirect_to incomes_income_and_payments_url
+        else
+          flash[:success] = "登録に成功しました。"        
+          redirect_to payments_income_and_payments_url
+        end
       else
-        flash[:success] = "登録に成功しました。"        
-        redirect_to payments_income_and_payments_url
+        if @income_and_payment.income_or_payment == IncomeAndPayment::INCOMES
+          flash[:success] = "登録に成功しました。"
+          redirect_to incomes_income_and_payments_url
+        else
+          flash[:success] = "登録に成功しました。"        
+          redirect_to payments_income_and_payments_url
+        end
       end
     else
       flash.now[:danger] = "登録に失敗しました。"
