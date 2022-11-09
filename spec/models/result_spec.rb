@@ -1,5 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe Result, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:user) { create(:user) }
+  let!(:oldest_date) { create(:money_place, :oldest_date, user: user) }
+  let!(:latest_date) { create(:money_place, :latest_date, user: user) }
+  describe "result_date" do
+    it "3年後の月末を返すこと" do
+      expect(Result.result_date.last).to eq Date.new(2025,11,30)
+    end
+
+    it "日付が古いお金の場所のから計算の対象期間を返していること" do
+      expect(Result.result_date.first).to eq Date.new(2022,11,1)
+    end
+  end
 end

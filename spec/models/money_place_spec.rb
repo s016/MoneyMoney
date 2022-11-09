@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe MoneyPlace, type: :model do
-  let(:money_place) { build(:money_place) }
+  let(:money_place) { build(:money_place, :oldest_date) }
   it "空白の名前は無効であること" do
     money_place[:name] = nil
     expect(money_place).to be_invalid
@@ -14,7 +14,7 @@ RSpec.describe MoneyPlace, type: :model do
     money_place[:amount] = nil  
     expect(money_place).to be_invalid
   end
-  it "０円の金額は有効であること" do
+  it "0円の金額は有効であること" do
     money_place[:amount] = 0
     expect(money_place).to be_valid    
   end
