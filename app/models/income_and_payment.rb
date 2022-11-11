@@ -8,4 +8,23 @@ class IncomeAndPayment < ApplicationRecord
   validates :income_or_payment, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 2 }
   INCOMES = 1
   PAYMENTS = 2
-end
+  validate :invalid_date
+
+  def self.find_money_place_date(money_place_id)
+    money_place_date = MoneyPlace.find_by(id: money_place_id).date
+  end
+
+  def self.find_income_and_payment_date(income_and_payment_params)
+    income_and_payment_date = income_and_payment_params
+  end
+
+  def invalid_date
+    if MoneyPlace.find_by(id: self.money_place.id).present? && self.date.present?
+      income_and_payment_date = self.date
+      money_place_date = MoneyPlace.find_by(id: self.money_place.id).date
+      if income_and_payment_date < money_place_date
+        errors.add(:date, "お金の場所に登録した日付より前の日付は登録できません。")
+      end
+    end
+  end
+ end

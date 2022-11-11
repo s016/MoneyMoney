@@ -16,7 +16,7 @@ end
 
 #動作確認用のお金の場所
 3.times do |n|
-  user.money_places.create!(name: "test_money_place#{n}" , date: Date.today + n, amount: 100)
+  user.money_places.create!(name: "test_money_place#{n}" , date: Date.new(2022,11,1) + n, amount: 100)
 end
 
 #動作確認用の詳細項目

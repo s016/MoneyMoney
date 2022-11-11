@@ -4,6 +4,7 @@ RSpec.describe Result, type: :model do
   let(:user) { create(:user) }
   let!(:oldest_date) { create(:money_place, :oldest_date, user: user) }
   let!(:latest_date) { create(:money_place, :latest_date, user: user) }
+  
   describe "result_date" do
     it "3年後の月末を返すこと" do
       expect(Result.result_date.last).to eq Date.new(2025,11,30)
