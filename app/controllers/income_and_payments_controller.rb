@@ -11,8 +11,7 @@ class IncomeAndPaymentsController < ApplicationController
     if @income_and_payment.save
       if @income_and_payment.month_loop
         saved_month = 1
-        three_year_to_month_minus_saved_maonth = 35
-        (saved_month..three_year_to_month_minus_saved_maonth).each do |num|
+        (saved_month..IncomeAndPayment::THREE_YEAR_TO_MONTH_MINUS_SAVED_MAONTH).each do |num|
           nex_month = [item_id: income_and_payment_params[:item_id],
                        detail_item_id: income_and_payment_params[:detail_item_id],
                        money_place_id: income_and_payment_params[:money_place_id],
