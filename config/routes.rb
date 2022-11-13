@@ -25,4 +25,5 @@ Rails.application.routes.draw do
   end
 
   resources :results, only: [:index]
+  resources :actual_moneies, only: [:new, :create]
 end

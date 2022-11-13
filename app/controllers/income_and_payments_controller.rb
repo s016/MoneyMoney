@@ -3,7 +3,6 @@ class IncomeAndPaymentsController < ApplicationController
 
   def new
     @income_and_payment = IncomeAndPayment.new
-
   end
 
   def create
@@ -12,13 +11,15 @@ class IncomeAndPaymentsController < ApplicationController
       if @income_and_payment.month_loop
         saved_month = 1
         (saved_month..IncomeAndPayment::THREE_YEAR_TO_MONTH_MINUS_SAVED_MAONTH).each do |num|
-          nex_month = [item_id: income_and_payment_params[:item_id],
-                       detail_item_id: income_and_payment_params[:detail_item_id],
-                       money_place_id: income_and_payment_params[:money_place_id],
-                       date: income_and_payment_params[:date].to_date.since(num.month),
-                       month_loop: income_and_payment_params[:month_loop],
-                       amount: income_and_payment_params[:amount],
-                       income_or_payment: income_and_payment_params[:income_or_payment]]
+          nex_month = [
+                        item_id: income_and_payment_params[:item_id],
+                        detail_item_id: income_and_payment_params[:detail_item_id],
+                        money_place_id: income_and_payment_params[:money_place_id],
+                        date: income_and_payment_params[:date].to_date.since(num.month),
+                        month_loop: income_and_payment_params[:month_loop],
+                        amount: income_and_payment_params[:amount],
+                        income_or_payment: income_and_payment_params[:income_or_payment]
+                      ]
           current_user.income_and_payments.create(nex_month)
         end
         if @income_and_payment.income_or_payment == IncomeAndPayment::INCOMES
