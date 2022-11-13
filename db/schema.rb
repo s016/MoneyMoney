@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_22_232621) do
+ActiveRecord::Schema.define(version: 2022_10_25_030610) do
 
   create_table "detail_items", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -57,6 +57,11 @@ ActiveRecord::Schema.define(version: 2022_10_22_232621) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_money_places_on_user_id"
+  end
+
+  create_table "results", charset: "utf8mb4", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|

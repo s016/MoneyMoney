@@ -29,7 +29,7 @@
             <div class="navbar-nav">
               <% if user_signed_in? %>
                 <%= link_to :登録,  new_income_and_payment_path, class: "nav-link"%>
-                <a class="nav-link" href="#">予測の結果</a>
+                <%= link_to :予測の結果,  results_path, class: "nav-link"%>
                 <%= link_to :登録一覧, incomes_income_and_payments_path, class: "nav-link"%>
                 <a class="nav-link" href="#">振返り</a>
               <% else %>

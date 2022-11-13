@@ -1,0 +1,9 @@
+ja:
+  date:
+    formats:
+      default: ! '%Y/%m/%d'
+
+  activerecord:
+  errors:
+    messages:
+      record_invalid: "バリデーションに失敗しました: %{errors}"

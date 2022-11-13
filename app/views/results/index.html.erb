@@ -1,0 +1,69 @@
+<div class="result-data">
+  <h2 class="result-title">収入</h2>
+  <% if @incomes.present? %>
+    <div class="row flex-nowrap result-data">
+      <ul class="col-sm-2">
+        <li>大項目</li>
+        <% Item.where(income_or_payment: IncomeAndPayment::INCOMES).each do |item| %>
+          <li><%= item.name %></li>
+        <% end %>
+        <li>合計</li>
+      </ul>
+      <% @result_incomes.each do |date, income_data| %>
+        <ul class="col-sm-2">
+          <li><%= date %></li>
+          <% income_data.each do |item_name, income_value| %>
+            <li><%= income_value %></li>
+          <% end %>
+          <li><%= Result.result_sum(@incomes, date) %></li>
+        </ul>
+      <% end%>
+    </div>
+  <% end %>
+</div>
+
+<div class="result-data">
+  <h2 class="result-title">支払</h2>
+  <% if @payments.present? %>
+    <div class="row flex-nowrap result-data">
+      <ul class="col-sm-2">
+        <li>大項目</li>
+        <% Item.where(income_or_payment: IncomeAndPayment::PAYMENTS).each do |item| %>
+          <li><%= item.name %></li>
+        <% end %>
+        <li>合計</li>
+      </ul>
+      <% @result_payments.each do |date, payment_data| %>
+        <ul class="col-sm-2">
+          <li><%= date %></li>
+          <% payment_data.each do |item_name, payment_value| %>
+            <li><%= payment_value %></li>
+          <% end %>
+          <li><%= Result.result_sum(@payments, date) %></li>
+        </ul>
+      <% end%>
+    </div>
+  <% end %>
+</div>
+
+<div class="result-data">
+  <h2 class="result-title">お金</h2>
+  <% if @money_places.present? %>
+    <div class="row flex-nowrap result-data">
+      <ul class="col-sm-2">
+        <li>名前</li>
+        <% @money_places.each do |money_place| %>
+            <li><%= money_place.name %></li>
+        <% end %>
+      </ul>
+      <% @result_money_place.each do |date, money_place_data| %>
+        <ul class="col-sm-2">
+          <li><%= date %></li>
+          <% money_place_data.each do |money_place_name, money_place_value| %>
+            <li><%= money_place_value %></li>
+          <% end %>
+        </ul>
+      <% end%>
+    </div>
+  <% end %>
+</div>

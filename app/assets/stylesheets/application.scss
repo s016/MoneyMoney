@@ -1,3 +1,36 @@
+/* 結果ページの設定*/
+.result-data li {
+  list-style: none;
+}
+
+.result-title {
+  border-bottom: solid 3px #036635;
+  margin-bottom: 20px;
+}
+
+.result-data {
+  margin-bottom: 50px;
+}
+
+/* 結果ページの設定ここまで*/
+
+/* 登録ページの設定*/
+.table-title {
+  text-align: center;
+}
+
+.regi-table {
+  margin-top: 20px;
+}
+
+.regi-title {
+  margin-top: 30px;
+  border-bottom: solid 3px #036635;
+}
+
+/* 登録ページの設定ここまで*/
+
+
 /* ヘッダーの設定*/
 .sitename {
   font-size: 30px;
