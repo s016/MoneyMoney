@@ -1,4 +1,5 @@
 class ResultsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @incomes = current_user.income_and_payments.where(income_or_payment: IncomeAndPayment::INCOMES)
