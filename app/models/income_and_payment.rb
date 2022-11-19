@@ -10,7 +10,7 @@ class IncomeAndPayment < ApplicationRecord
   validate :invalid_before_confirm_date
   INCOMES = 1
   PAYMENTS = 2
-  THREE_YEAR_TO_MONTH_MINUS_SAVED_MAONTH = 11
+  THREE_YEAR_TO_MONTH_MINUS_SAVED_MAONTH = 35
 
   def self.find_money_place_date(money_place_id)
     money_place_date = MoneyPlace.find_by(id: money_place_id).date
