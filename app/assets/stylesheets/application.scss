@@ -78,5 +78,43 @@ a:hover {
 
 /* コンテンツの設定 ここまで*/
 
+/* ユーザーのログイン*/
+.user-label-name {
+  font-size: 16px;
+  text-align: left;
+  font-weight: 600;
+  margin: 0;
+}
+
+.user-button {
+  margin-top: 32px;
+  margin-bottom: 24px;
+  color: #fff;
+  background-color: #036635;
+  border-radius: 22px;
+  height: 44px;
+  font-size: 17px;
+}
+
+.user-form {
+  font-size: 16px;
+  height: 32px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+}
+
+.user-links {
+  color: #036635;
+}
+
+.user-title {
+  margin-bottom: 30px;
+}
+
+/* ユーザーのログインここまで*/
+
+
 /* 全体の設定*/
+
 /* 全体の設定 ここまで*/
