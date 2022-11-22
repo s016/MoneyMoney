@@ -1,4 +1,4 @@
-<div class="card registraion-flame">
+<div class="card registraion-flame col-md-8 mx-auto">
   <div class="card-body">
     <div class="user-title">
       <h1>パスワードを忘れた場合</h1>
@@ -9,7 +9,7 @@
         <%= f.label :メールアドレス, class: 'user-label-name' %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
 
-        <%= f.submit "パスワードのリセットメールを送信する", class: "user-button" %>
+        <%= f.submit "パスワードのリセットメールを送信", class: "user-button" %>
         <%= render "devise/shared/links" %>
       </div>
     <% end %>

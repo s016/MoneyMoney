@@ -1,25 +1,22 @@
 <%= render 'layouts/registration_tab' %>
 
-<div class="card registraion-flame">
-  <div class="card-header">
-    <h2>お金の場所の登録</h2>
+<div class="card registraion-flame col-md-8 mx-auto">
+  <div class="regi-title">
+    <h1>お金の場所の登録</h1>
   </div>
-  <div class="registraion-form container">
+  <div class="card-body">
       <%= form_with model: @money_place, local: true do |f| %>
-        <li class="list-group-item">
-          <%= f.label :name, "名前" %>
-          <%= f.text_field :name %>
-        </li>
-        <li class="list-group-item">
-          <%= f.label :date, "日付" %>
-          <%= f.date_field :date %>
-        </li>
-        <li class="list-group-item">
-          <%= f.label :amount, "金額" %>
-          <%= f.number_field :amount, min: 0 %>
-        </li>
-        <div class="card-body">
-          <%= f.submit "登録する", class: "btn btn-primary" %>
+        <div class="d-inline-flex flex-column col-md-6">
+          <%= f.label :name, "名前", class: "regi-label-name" %>
+          <%= f.text_field :name, class: "regi-form" %>
+
+          <%= f.label :date, "日付", class: "regi-label-name" %>
+          <%= f.date_field :date, class: "regi-form" %>
+
+          <%= f.label :amount, "金額", class: "regi-label-name" %>
+          <%= f.number_field :amount, min: 0, class: "regi-form-right" %>
+
+          <%= f.submit "登録する", class: "regi-button" %>
         </div>
       <% end %>
   </div>

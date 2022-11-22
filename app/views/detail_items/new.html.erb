@@ -1,31 +1,32 @@
 <%= render 'layouts/registration_tab' %>
 
-<div class="card registraion-flame">
-  <div class="card-header">
-      <h2>詳細項目の登録</h2>
+<div class="card registraion-flame col-md-8 mx-auto"">
+  <div class="regi-title">
+      <h1>詳細項目の登録</h1>
   </div>
   <div class="card-body">
-    <div class="tab-pane">
-      <%= form_with model: @detail_item, remote: true do |f| %>
-        <div>
-          <%= f.label :type, "収入" %>
-          <%= f.radio_button :income_or_payment, IncomeAndPayment::INCOMES %>
-          <%= f.label :type, "支払" %>
-          <%= f.radio_button :income_or_payment, IncomeAndPayment::PAYMENTS %>
+    <%= form_with model: @detail_item, remote: true do |f| %>
+      <div class="d-inline-flex flex-column col-md-6">
+        <div class="regi-item">
+          <span class="regi-form-item">
+            <%= f.label :type, "収入", class: "regi-label-name" %>
+            <%= f.radio_button :income_or_payment, IncomeAndPayment::INCOMES %>
+            <%= f.label :type, "支払", class: "regi-label-name" %>
+            <%= f.radio_button :income_or_payment, IncomeAndPayment::PAYMENTS %>
+          </span>
         </div>
-        <div>
-          <%= f.label :item, "大項目を選択する" %>
-          <%= f.select :item_id, [], { class: "select-parent" } %>
+        <div class="regi-item">
+          <span class="regi-form-item">
+            <%= f.label :item, "大項目を選択する", class: "regi-label-name" %>
+            <%= f.select :item_id, [], { include_blank: true }, { class: "select-parent regi-select-box" } %>
+          </span>
         </div>
-        <div>
-          <%= f.label :name, "名前" %>
-          <%= f.text_field :name %>
-        </div>
-        <div>
-          <%= f.submit "登録する", class: "btn btn-primary" %>
-        </div>
-      <% end %>
-    </div>
+        <%= f.label :name, "名前", class: "regi-label-name" %>
+        <%= f.text_field :name, class: "regi-form" %>
+
+        <%= f.submit "登録する", class: "regi-button" %>
+      </div>
+    <% end %>
   </div>
 </div>
   <%= javascript_pack_tag 'detail_items/new' %>
