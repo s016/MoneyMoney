@@ -15,29 +15,32 @@
   </head>
   <body>
     <!-- ヘッダー -->
-    <div class="header">
-      <div class="up-header">
-        <%= link_to :MoneyMoney, root_path, class: "sitename"%>
-        <% if user_signed_in? %>
-          <span class="login-user-name"><%= current_user.name %><%= link_to :ログアウト, destroy_user_session_path, method: :delete %></span>
-        <% else %>
-        <% end %>
-      </div>
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <% if user_signed_in? %>
-                <%= link_to :登録,  new_income_and_payment_path, class: "nav-link"%>
-                <%= link_to :予測の結果,  results_path, class: "nav-link"%>
-                <%= link_to :登録一覧, incomes_income_and_payments_path, class: "nav-link"%>
-                <%= link_to :振返り・残高の確定,  new_actual_money_path, class: "nav-link"%>                
-              <% else %>
-              <% end %>
-            </div>
-          </div>
+    <div class="header d-flex flex-column">
+      <div class="up-header row navbar justify-content-between">
+        <div class="col-3">
+          <%= link_to :MoneyMoney, root_path, class: "sitename"%>
         </div>
-      </nav>
+        <div class="col-5 up-header-menu">
+          <% if user_signed_in? %>
+            <span class="login-user-name">
+              <%= current_user.name %>
+            </span>
+            <span class="logout-user">
+              <%= link_to :ログアウト, destroy_user_session_path, method: :delete %>
+            </span>
+          <% else %>
+          <% end %>
+        </div>
+      </div>
+      <div class="navbar justify-content-start">
+          <% if user_signed_in? %>
+            <%= link_to :登録,  new_income_and_payment_path, class: "col-2 navbar-item"%>
+            <%= link_to :予測の結果,  results_path, class: "col-2 navbar-item"%>
+            <%= link_to :登録一覧, incomes_income_and_payments_path, class: "col-2 navbar-item"%>
+            <%= link_to :振返り・残高の確定,  new_actual_money_path, class: "col-2 navbar-item"%>
+          <% else %>
+          <% end %>
+      </div>
       <!-- flashの表示 -->
       <% flash.each do |message_type, message| %>
         <%= message %>

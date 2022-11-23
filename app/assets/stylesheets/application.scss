@@ -104,11 +104,7 @@ body {
 }
 
 .login-user-name {
-  float: right
-}
-
-.container-fluid {
-  border-bottom: solid 1px #c8c7cc;
+  text-align: right;
 }
 
 body a {
@@ -122,6 +118,32 @@ a:hover {
 
 .header {
   margin-bottom: 70px;
+  padding: 0;
+  border-bottom: solid 3px #c8c7cc;
+}
+
+.up-header {
+  background-color: #fff;
+}
+
+.navbar {
+  background-color: #fff;
+  padding: 0;
+}
+
+.navbar-item {
+  margin: 0;
+}
+
+.up-header-menu {
+  text-align: right;
+}
+
+.up-header-menu span {
+  font-size: 16px;
+  color: #333;
+  padding-right: 15px;
+
 }
 
 /* ヘッダーの設定ここまで*/
