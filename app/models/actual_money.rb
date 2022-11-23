@@ -25,6 +25,7 @@ class ActualMoney < ApplicationRecord
     end
       return true
     rescue
+      logger.debug(data_into_moneies)
       return false
   end
 end
