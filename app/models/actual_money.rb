@@ -4,6 +4,7 @@ class ActualMoney < ApplicationRecord
   validates :date, presence: true
   validates :amount, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validate :invalid_before_confirm_date
+  #確定処理を1度もしていない場合0を確定した日付とする。
   NONE_CONFIRM_DATE = 0
 
   def invalid_before_confirm_date

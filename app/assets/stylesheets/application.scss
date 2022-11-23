@@ -1,6 +1,6 @@
 /* 全体の設定*/
-body {
-  background-color: #F3F3F2 !important;
+.card {
+  background-color: #F7F6F6 !important;
 }
 
 /* 全体の設定 ここまで*/
@@ -91,6 +91,12 @@ body {
   width: 150px;
 }
 
+.regi-menu {
+  margin-bottom: 70px;
+  background-color: #F7F6F6;
+  height: 80px;
+}
+
 /* 登録ページの設定ここまで*/
 
 
@@ -117,7 +123,6 @@ a:hover {
 }
 
 .header {
-  margin-bottom: 70px;
   padding: 0;
   border-bottom: solid 3px #c8c7cc;
 }
@@ -126,13 +131,13 @@ a:hover {
   background-color: #fff;
 }
 
-.navbar {
+.down-header {
   background-color: #fff;
   padding: 0;
 }
 
-.navbar-item {
-  margin: 0;
+.down-header-item {
+  margin-left: 30px;
 }
 
 .up-header-menu {

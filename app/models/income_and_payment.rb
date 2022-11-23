@@ -8,8 +8,10 @@ class IncomeAndPayment < ApplicationRecord
   validates :income_or_payment, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 2 }
   validate :invalid_before_money_places_date
   validate :invalid_before_confirm_date
+  #MYSQLのincome_or_paymentカラムは1を収入、2を支払いとしている。
   INCOMES = 1
   PAYMENTS = 2
+  #3年分は36ヶ月 36ヶ月 - 保存した1ヶ月 = 35ヶ月
   THREE_YEAR_TO_MONTH_MINUS_SAVED_MAONTH = 35
 
   def self.find_money_place_date(money_place_id)
