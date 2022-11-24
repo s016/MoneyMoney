@@ -7,11 +7,11 @@ RSpec.describe Result, type: :model do
   
   describe "result_date" do
     it "3年後の月末を返すこと" do
-      expect(Result.result_date.last).to eq Date.new(2025,11,30)
+      expect(Result.result_date(user).last).to eq Date.new(2025,11,30)
     end
 
     it "日付が古いお金の場所のから計算の対象期間を返していること" do
-      expect(Result.result_date.first).to eq Date.new(2022,11,1)
+      expect(Result.result_date(user).first).to eq Date.new(2022,11,1)
     end
   end
 end

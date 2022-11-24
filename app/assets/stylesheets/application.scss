@@ -1,3 +1,10 @@
+/* 全体の設定*/
+.card {
+  background-color: #F7F6F6 !important;
+}
+
+/* 全体の設定 ここまで*/
+
 /* 結果ページの設定*/
 .result-data li {
   list-style: none;
@@ -28,6 +35,68 @@
   border-bottom: solid 3px #036635;
 }
 
+.regi-title h1 {
+  font-size: 30px;
+}
+
+.regi-label-name {
+  font-size: 16px;
+  text-align: left;
+  font-weight: 600;
+  margin: 0;
+}
+
+.registraion-flame {
+  text-align: center;
+  margin: 0;
+  float: center;
+}
+
+.regi-form {
+  font-size: 16px;
+  height: 32px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+}
+
+.regi-form-right {
+  font-size: 16px;
+  height: 32px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  direction: rtl;
+}
+
+.regi-button {
+  margin-top: 32px;
+  margin-bottom: 24px;
+  color: #fff;
+  background-color: #036635;
+  border-radius: 22px;
+  height: 44px;
+  font-size: 17px;
+}
+
+.regi-form-item {
+  float: left;
+}
+
+.regi-item {
+  margin-bottom: 12px;
+}
+
+.regi-select-box {
+  width: 150px;
+}
+
+.regi-menu {
+  margin-bottom: 70px;
+  background-color: #F7F6F6;
+  height: 80px;
+}
+
 /* 登録ページの設定ここまで*/
 
 
@@ -41,11 +110,7 @@
 }
 
 .login-user-name {
-  float: right
-}
-
-.container-fluid {
-  border-bottom: solid 1px #c8c7cc;
+  text-align: right;
 }
 
 body a {
@@ -58,25 +123,71 @@ a:hover {
 }
 
 .header {
-  margin-bottom: 70px;
+  padding: 0;
+  border-bottom: solid 3px #c8c7cc;
+}
+
+.up-header {
+  background-color: #fff;
+}
+
+.down-header {
+  background-color: #fff;
+  padding: 0;
+}
+
+.down-header-item {
+  margin-left: 30px;
+}
+
+.up-header-menu {
+  text-align: right;
+}
+
+.up-header-menu span {
+  font-size: 16px;
+  color: #333;
+  padding-right: 15px;
+
 }
 
 /* ヘッダーの設定ここまで*/
 
 /* コンテンツの設定*/
-.main-content {
-  background-color: #fff;
-}
-
-.registraion-flame {
-  text-align: center;
-}
-
-.registraion-form {
-  padding: none;
-}
-
 /* コンテンツの設定 ここまで*/
 
-/* 全体の設定*/
-/* 全体の設定 ここまで*/
+/* ユーザーのログイン*/
+.user-label-name {
+  font-size: 16px;
+  text-align: left;
+  font-weight: 600;
+  margin: 0;
+}
+
+.user-button {
+  margin-top: 32px;
+  margin-bottom: 24px;
+  color: #fff;
+  background-color: #036635;
+  border-radius: 22px;
+  height: 44px;
+  font-size: 17px;
+}
+
+.user-form {
+  font-size: 16px;
+  height: 32px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+}
+
+.user-links {
+  color: #036635;
+}
+
+.user-title {
+  margin-bottom: 30px;
+}
+
+/* ユーザーのログインここまで*/

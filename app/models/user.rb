@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :detail_items
   has_many :income_and_payments
   has_many :money_places
+  has_many :actual_moneies
 end

@@ -1,48 +1,54 @@
 <%= render 'layouts/registration_tab' %>
 
-<div class="card registraion-flame">
-  <div class="card-header">
-    <h2>収入・支払の登録</h2>
+<div class="card registraion-flame col-md-8 mx-auto">
+  <div class="regi-title">
+    <h1>収入・支払の登録</h1>
   </div>
   <div class="card-body">
-    <div class="tab-pane">
-      <%= form_with model: @income_and_payment, remote: true do |f| %>
-        <div>
-            <%= f.label :type, "収入" %>
+    <%= form_with model: @income_and_payment, remote: true do |f| %>
+      <div class="d-inline-flex flex-column col-md-6">
+        <div class="regi-item">
+          <span class="regi-form-item">
+            <%= f.label :type, "収入", class: "regi-label-name" %>
             <%= f.radio_button :income_or_payment, IncomeAndPayment::INCOMES %>
-            <%= f.label :type, "支払" %>
+            <%= f.label :type, "支払", class: "regi-label-name" %>
             <%= f.radio_button :income_or_payment, IncomeAndPayment::PAYMENTS %>
+          </span>
         </div>
-        <div>
-          <%= f.label :item, "大項目" %>
-          <%= f.select :item_id, [], { include_blank: true }, { class: "select-parent" } %>
+
+        <div class="regi-item">
+          <span class="regi-form-item">
+            <%= f.label :item, "大項目", class: "regi-label-name" %>
+            <%= f.select :item_id, [], { include_blank: true }, { class: "select-parent regi-select-box" } %>
+          </span>
         </div>
-        <div class="detail-item-form">
-          <%= f.label :detai_item, "詳細項目" %>
-          <%= f.select :detail_item_id, [], { include_blank: true }, { class: "select-parent" } %>
+
+        <div class="regi-item">
+          <span class="regi-form-item">
+          <%= f.label :detai_item, "詳細項目", class: "regi-label-name" %>
+          <%= f.select :detail_item_id, [], { include_blank: true }, { class: "select-parent regi-select-box" } %>
+          </span>
         </div>
-        <div>
-          <%= f.label :date, "日付" %>
-          <%= f.date_field :date %>
+
+        <%= f.label :date, "日付", class: "regi-label-name" %>
+        <%= f.date_field :date, class: "regi-form" %>
+
+        <div class="regi-item">
+          <span class="regi-form-item">
+            <%= f.label :month_loop, "毎月", class: "regi-label-name"%>
+            <%= f.check_box :month_loop, {}, checked_value=true %>        
+          </span>
         </div>
-        <div>
-          <%= f.label :month_loop, "毎月" %>
-          <%= f.check_box :month_loop, {}, checked_value=true %>
-        </div>
-        <div>
-          <%= f.label :amount, "金額" %>
-          <%= f.number_field :amount, min: 0 %>
-        </div>
-        <div>
-          <%= f.label :money_place, "お金の場所" %>
-          <%= f.select :money_place_id, options_from_collection_for_select(current_user.money_places, :id, :name),
-          { include_blank: true }, {} %>
-        </div>
-        <div class="card-body">
-          <%= f.submit "登録する", class: "btn btn-primary" %>
-        </div>
-      <% end %>
-    </div>
+
+        <%= f.label :amount, "金額", class: "regi-label-name" %>
+        <%= f.number_field :amount, min: 0, class: "regi-form-right" %>
+
+        <%= f.label :money_place, "お金の場所", class: "regi-label-name" %>
+        <%= f.select :money_place_id, options_from_collection_for_select(current_user.money_places, :id, :name), { include_blank: true }, class: "regi-form" %>
+
+        <%= f.submit "登録する", class: "regi-button" %>
+      </div>
+    <% end %>
   </div>
 </div>
 <%= javascript_pack_tag 'income_and_payments/new' %>

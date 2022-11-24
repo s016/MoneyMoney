@@ -1,0 +1,32 @@
+<div class="regi-title">
+  <h2>振返り・残高の確定</h2>
+</div>
+<% if @actual_moneies.present? && @actual_moneies.collection.present? %>  
+  <%= form_with model: @actual_moneies, url: actual_moneies_path, local: true do |f| %>
+    <div>
+      <%= f.label :date, "確定する日付" %>
+      <%= f.date_field :date %>
+    </div>
+    <% @actual_moneies.collection.each do |actual_money| %>
+      <%= fields_for "actual_money[]", actual_money do |field| %>
+        <div class="row">
+          <div class="col-md-2">
+          <br>
+            <%= field.label :money_place, "#{actual_money.money_place.name}" %>
+            <%= field.hidden_field :money_place_id, :value => "#{actual_money.money_place.id}"%>
+          </div>
+          <div class="col-md-2">
+            <%= field.label :amount, "実際の金額" %>
+            <%= field.number_field :amount, min: 0 %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <%= f.submit "実際の金額に確定する", class: "btn btn-primary" %>
+  <% end %>
+<% else %>
+  <div>
+    <p>お金の場所が登録されていません。</p>
+    <p><%= link_to :お金の場所を登録する。, new_money_place_path %></p>
+  </div>
+<% end %>
