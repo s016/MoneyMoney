@@ -39,7 +39,7 @@ class Result < ApplicationRecord
         result[result_date.to_s] = {}
         money_places.each do |money_place|
           start_day = current_user.actual_moneies.present? ? current_user.actual_moneies.maximum(:date) : money_place.date
-          end_day = start_day.since(3.year).end_of_month
+          end_day = result_date
           incomes = IncomeAndPayment.where(money_place_id: money_place.id, date: start_day..end_day, income_or_payment: IncomeAndPayment::INCOMES).sum(:amount)
           payments = IncomeAndPayment.where(money_place_id: money_place.id, date: start_day..end_day, income_or_payment: IncomeAndPayment::PAYMENTS).sum(:amount)
           if money_place.actual_moneies.present?
