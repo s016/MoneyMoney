@@ -1,9 +1,9 @@
-/* 全体の設定*/
-.card {
-  background-color: #F7F6F6 !important;
+/* 結果ページの設定*/
+.actual-flame {
+  margin-top: 100px;
 }
 
-/* 全体の設定 ここまで*/
+/* 結果ページの設定ここまで*/
 
 /* 結果ページの設定*/
 .result-data li {
@@ -21,15 +21,7 @@
 
 /* 結果ページの設定ここまで*/
 
-/* 登録ページの設定*/
-.table-title {
-  text-align: center;
-}
-
-.regi-table {
-  margin-top: 20px;
-}
-
+/* 登録フォームの設定*/
 .regi-title {
   margin-top: 30px;
   border-bottom: solid 3px #036635;
@@ -48,7 +40,6 @@
 
 .registraion-flame {
   text-align: center;
-  margin: 0;
   float: center;
 }
 
@@ -97,8 +88,18 @@
   height: 80px;
 }
 
-/* 登録ページの設定ここまで*/
+/* 登録フォームの設定ここまで*/
 
+/* 登録一覧の設定*/
+.table-title {
+  text-align: center;
+}
+
+.regi-table {
+  margin-top: 20px;
+}
+
+/* 登録一覧の設定ここまで*/
 
 /* ヘッダーの設定*/
 .sitename {
@@ -153,9 +154,6 @@ a:hover {
 
 /* ヘッダーの設定ここまで*/
 
-/* コンテンツの設定*/
-/* コンテンツの設定 ここまで*/
-
 /* ユーザーのログイン*/
 .user-label-name {
   font-size: 16px;
@@ -191,3 +189,10 @@ a:hover {
 }
 
 /* ユーザーのログインここまで*/
+
+/* 全体の設定*/
+.card {
+  background-color: #F7F6F6 !important;
+}
+
+/* 全体の設定 ここまで*/
