@@ -9,7 +9,7 @@ class Result < ApplicationRecord
       start_day = current_user.money_places.minimum(:date)
     end
     #3年後の月末まで
-    end_day = start_day.since(3.year).end_of_month
+    end_day = start_day.since(1.month).end_of_month
     (start_day..end_day).select { |date| date }
   end
 
@@ -47,6 +47,22 @@ class Result < ApplicationRecord
           else
             result[result_date.to_s][money_place.name] = money_place.amount + incomes - payments
           end
+        end
+      end
+    end
+    return result
+  end
+
+  def self.result_detail_items(current_user, item_id)
+    result = {}
+    self.result_date(current_user).each do |result_date|
+      result[result_date.to_s] = []
+      DetailItem.where(user_id: current_user.id , item_id: item_id).each do |detail_item|
+        result_detail_item = IncomeAndPayment.find_by(date: result_date, detail_item_id: detail_item.id)
+        if result_detail_item.present?
+          result[result_date.to_s].push(result_detail_item.amount)
+        else
+          result[result_date.to_s].push(0)
         end
       end
     end

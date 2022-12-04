@@ -1,0 +1,9 @@
+<div class="result-item-row" id=<%= "detai-item-value-#{item_id}"%>>
+	<% detail_items.each do |date, values| %>
+		<div class="result-detail-item">
+			<% values.each do |value| %>
+				<span class="result-item"><%= value %></span> 
+			<% end %>
+		</div>
+	<% end %>
+</div>

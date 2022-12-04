@@ -10,17 +10,48 @@
 /* 確定ページの設定ここまで*/
 
 /* 結果ページの設定*/
-.result-data li {
-  list-style: none;
-}
-
 .result-title {
   border-bottom: solid 3px #036635;
   margin-bottom: 20px;
 }
 
-.result-data {
-  margin-bottom: 50px;
+.result-box {
+  display: flex;
+  flex-direction: row;
+}
+
+.result-item-names {
+  display: flex;
+  flex-flow: column;
+}
+
+.result-item-names span {
+  width: 200px;
+}
+
+.result-value-box {
+  display: flex;
+  flex-flow: column;
+}
+
+.result-item {
+  width: 100px;
+}
+
+.result-item-row {
+  display: flex;
+  flex-direction: row;
+  text-align: right;
+}
+
+.result-detail-item {
+  flex-direction: column;
+  display: flex;
+}
+
+.item-button {
+  display: flex;
+  flex-direction: row;
 }
 
 /* 結果ページの設定ここまで*/
