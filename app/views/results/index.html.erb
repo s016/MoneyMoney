@@ -2,57 +2,80 @@
   <h2 class="result-title">収入</h2>
   <% if @incomes.present? %>
     <div class="result-box">
-      <div class="result-item-names">
+      <div class="result-item-name-box">
         <span>大項目</span>
-        <% @income_names.each do |income_name| %>
-          <span class="item-name" id=<%= "#{income_name.id}" %>><%= income_name.name %></span>
+        <% @income_items.each do |income_item| %>
+          <div class="item-names" id=<%= "#{income_item.id}" %>>
+            <span class="item-name"><%= income_item.name %></span>
+            <span class="open-toggle-button">+</span>
+          </div>
         <% end %>
         <span>合計</span>
       </div>
       <div class="result-value-box">
         <div class="result-item-row">
-          <% @result_incomes.each do |date, income_data| %>
+          <% @result_incomes.each do |date, values| %>
             <span class="result-item"><%= date %></span>
           <% end%>
         </div>
-        <% @income_names.each do |income_name| %>
-          <div class="result-item-row" id=<%= "item-id-#{income_name.id}" %>>
+        <% @income_items.each do |income_item| %>
+          <div class="result-item-row" id=<%= "item-id-#{income_item.id}" %>>
             <% @result_incomes.each do |date, values| %>
               <% values.each do |name, value| %>
-                <% if name == income_name.name %>
+                <% if name == income_item.name %>
                   <span class="result-item"><%= value %></span>
                 <% end %>
               <% end %>
             <% end %>
           </div>
         <% end %>
+        <div class="result-item-row">
+        <% @result_incomes.each do |date, values| %>
+          <span class="result-item"><%= Result.result_sum(@incomes, date) %></span>
+        <% end %>
+        </div>
       </div>
     </div>
   <% end %>
 </div>
-<%
-=begin 
-%>
+
 <div class="result-data">
   <h2 class="result-title">支払</h2>
   <% if @payments.present? %>
-    <div class="row flex-nowrap result-data">
-      <ul class="col-lg-2">
-        <li>大項目</li>
-        <% Item.where(income_or_payment: IncomeAndPayment::PAYMENTS).each do |item| %>
-          <li><%= item.name %></li>
+    <div class="result-box">
+      <div class="result-item-name-box">
+        <span>大項目</span>
+        <% @payment_items.each do |payment_item| %>
+          <div class="item-names" id=<%= "#{payment_item.id}" %>>
+            <span class="item-name"><%= payment_item.name %></span>
+            <span class="open-toggle-button">+</span>
+          </div>
         <% end %>
-        <li>合計</li>
-      </ul>
-      <% @result_payments.each do |date, payment_data| %>
-        <ul class="col-lg-2">
-          <li><%= date %></li>
-          <% payment_data.each do |item_name, payment_value| %>
-            <li><%= payment_value %></li>
+        <span>合計</span>
+      </div>
+      <div class="result-value-box">
+        <div class="result-item-row">
+          <% @result_payments.each do |date, values| %>
+            <span class="result-item"><%= date %></span>
+          <% end%>
+        </div>
+        <% @payment_items.each do |payment_item| %>
+          <div class="result-item-row" id=<%= "item-id-#{payment_item.id}" %>>
+            <% @result_payments.each do |date, values| %>
+              <% values.each do |name, value| %>
+                <% if name == payment_item.name %>
+                  <span class="result-item"><%= value %></span>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+        <div class="result-item-row">
+          <% @result_incomes.each do |date, values| %>
+            <span class="result-item"><%= Result.result_sum(@payments, date) %></span>
           <% end %>
-          <li><%= Result.result_sum(@payments, date) %></li>
-        </ul>
-      <% end%>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>
@@ -60,25 +83,35 @@
 <div class="result-data">
   <h2 class="result-title">お金</h2>
   <% if @money_places.present? %>
-    <div class="row flex-nowrap result-data">
-      <ul class="col-lg-2">
-        <li>名前</li>
+    <div class="result-box">
+      <div class="result-item-name-box">
+        <span>名前</span>
         <% @money_places.each do |money_place| %>
-            <li><%= money_place.name %></li>
+          <div class="money-place-names">
+            <span class="money-place-name"><%= money_place.name %></span>
+          </div>
         <% end %>
-      </ul>
-      <% @result_money_place.each do |date, money_place_data| %>
-        <ul class="col-lg-2">
-          <li><%= date %></li>
-          <% money_place_data.each do |money_place_name, money_place_value| %>
-            <li><%= money_place_value %></li>
-          <% end %>
-        </ul>
-      <% end%>
+      </div>
+      <div class="result-value-box">
+        <div class="result-item-row">
+          <% @result_money_places.each do |date, values| %>
+            <span class="result-item"><%= date %></span>
+          <% end%>
+        </div>
+        <% @money_places.each do |money_place| %>
+          <div class="result-item-row">
+            <% @result_money_places.each do |date, values| %>
+              <% values.each do |name, value| %>
+                <% if name == money_place.name %>
+                  <span class="result-item"><%= value %></span>
+                <% end %>
+              <% end %>
+            <% end%>
+          </div>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>
-<% 
-=end 
-%>
+
 <%= javascript_pack_tag 'results/index' %>

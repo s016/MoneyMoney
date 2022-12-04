@@ -10,6 +10,14 @@
 /* 確定ページの設定ここまで*/
 
 /* 結果ページの設定*/
+.result-data {
+  margin-top: 80px;
+}
+
+.result-data li {
+  list-style: none;
+}
+
 .result-title {
   border-bottom: solid 3px #036635;
   margin-bottom: 20px;
@@ -20,12 +28,18 @@
   flex-direction: row;
 }
 
-.result-item-names {
+.result-item-name-box {
   display: flex;
   flex-flow: column;
 }
 
-.result-item-names span {
+.item-names {
+  display: flex;
+  flex-direction: row;
+  width: 200px;
+}
+
+.item-name {
   width: 200px;
 }
 
@@ -52,6 +66,18 @@
 .item-button {
   display: flex;
   flex-direction: row;
+}
+
+.detai-item-box {
+  border-bottom: solid 2px #ccc;
+}
+
+.result-detail-item-name {
+  margin-left: 20px;
+}
+
+.money-place-names {
+  width: 200px;
 }
 
 /* 結果ページの設定ここまで*/

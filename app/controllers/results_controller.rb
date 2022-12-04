@@ -4,13 +4,14 @@ class ResultsController < ApplicationController
   def index
     @incomes = current_user.income_and_payments.where(income_or_payment: IncomeAndPayment::INCOMES)
     @result_incomes = Result.result_income_and_payment(@incomes, IncomeAndPayment::INCOMES, current_user)
-    @income_names = Item.where(income_or_payment: IncomeAndPayment::INCOMES)
+    @income_items = Item.where(income_or_payment: IncomeAndPayment::INCOMES)
 
     @payments = current_user.income_and_payments.where(income_or_payment: IncomeAndPayment::PAYMENTS)
     @result_payments = Result.result_income_and_payment(@payments, IncomeAndPayment::PAYMENTS, current_user)
+    @payment_items = Item.where(income_or_payment: IncomeAndPayment::PAYMENTS)
 
     @money_places = current_user.money_places
-    @result_money_place = Result.result_money_place(@money_places, current_user)
+    @result_money_places = Result.result_money_place(@money_places, current_user)
   end
 
   def open_item
