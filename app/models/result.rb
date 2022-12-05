@@ -9,7 +9,7 @@ class Result < ApplicationRecord
       start_day = current_user.money_places.minimum(:date)
     end
     #3年後の月末まで
-    end_day = start_day.since(1.month).end_of_month
+    end_day = start_day.since(6.month).end_of_month
     (start_day..end_day).select { |date| date }
   end
 

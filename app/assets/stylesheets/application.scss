@@ -12,25 +12,29 @@
 /* 結果ページの設定*/
 .result-data {
   margin-top: 80px;
-}
-
-.result-data li {
-  list-style: none;
+  white-space: nowrap;
+  overflow: scroll;
 }
 
 .result-title {
-  border-bottom: solid 3px #036635;
   margin-bottom: 20px;
+  border-bottom: solid 3px #036635;
+  position: sticky;
+  left: 0;
 }
 
 .result-box {
   display: flex;
   flex-direction: row;
+  position: relative;
 }
 
 .result-item-name-box {
   display: flex;
   flex-flow: column;
+  position: sticky;
+  left: 0;
+  z-index: 2;
 }
 
 .item-names {
@@ -46,6 +50,7 @@
 .result-value-box {
   display: flex;
   flex-flow: column;
+
 }
 
 .result-item {
