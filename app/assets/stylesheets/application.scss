@@ -256,6 +256,101 @@ a:hover {
 
 /* ユーザーのログインここまで*/
 
+/* トップページ*/
+.stepper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.stepper-items {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.stepper-items:before {
+  content: "";
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  margin: 1rem auto 0;
+  background-color: #036635;
+}
+
+.stepper-items:not(:last-child)::after {
+  content: "";
+  position: relative;
+  top: 2.4rem;
+  left: 50%;
+  height: 2px;
+  background-color: #e0e0e0;
+  order: -1;
+}
+
+.flow-items {
+  list-style: none;
+  padding: 0 10px 15px 10px;
+  margin: 5%;
+  border: 2px solid #e8e8e8;
+  background-color: #b4ddc0;
+  border-radius: 15px;
+}
+
+.flow-items::before {
+  content: "";
+  display: block;
+  padding: 20px;
+  background-color: #b4ddc0;
+}
+
+.flow-items li {
+  display: block;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  border: 2px solid #e8e8e8;
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: left;
+  position: relative;
+}
+
+.flow-items p {
+  margin: 0;
+}
+
+.flow-items li:not(:last-child) {
+  margin-bottom: 50px;
+}
+
+.flow-items li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 21.7px 12.5px 0 12.5px;
+  border-color: #036635 transparent transparent transparent;
+  left: 50%;
+  bottom: -40px;
+  transform: translateX(-50%);
+  text-align: center;
+  display: block;
+}
+
+/* トップページここまで*/
+
+/* フッターの設定*/
+.footer {
+  background-color: #F7F6F6;
+}
+
+/* フッターの設定ここまで*/
+
 /* 全体の設定*/
 .card {
   background-color: #F7F6F6 !important;
