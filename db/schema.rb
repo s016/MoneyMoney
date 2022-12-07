@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_13_063611) do
+ActiveRecord::Schema.define(version: 2022_12_07_101111) do
 
-  create_table "actual_moneies", charset: "utf8mb4", force: :cascade do |t|
+  create_table "actual_monies", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "money_place_id", null: false
     t.date "date", null: false
     t.integer "amount", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["money_place_id"], name: "index_actual_moneies_on_money_place_id"
-    t.index ["user_id"], name: "index_actual_moneies_on_user_id"
+    t.index ["money_place_id"], name: "index_actual_monies_on_money_place_id"
+    t.index ["user_id"], name: "index_actual_monies_on_user_id"
   end
 
   create_table "detail_items", charset: "utf8mb4", force: :cascade do |t|
@@ -83,8 +83,8 @@ ActiveRecord::Schema.define(version: 2022_11_13_063611) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "actual_moneies", "money_places"
-  add_foreign_key "actual_moneies", "users"
+  add_foreign_key "actual_monies", "money_places"
+  add_foreign_key "actual_monies", "users"
   add_foreign_key "detail_items", "items"
   add_foreign_key "detail_items", "users"
   add_foreign_key "income_and_payments", "detail_items"

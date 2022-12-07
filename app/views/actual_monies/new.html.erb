@@ -3,8 +3,8 @@
     <h1>振返り・残高の確定</h1>
   </div>
   <div class="card-body">
-    <% if @actual_moneies.present? && @actual_moneies.collection.present? %>  
-      <%= form_with model: @actual_moneies, url: actual_moneies_path, local: true do |f| %>
+    <% if @actual_monies.present? && @actual_monies.collection.present? %>  
+      <%= form_with model: @actual_monies, url: actual_monies_path, local: true do |f| %>
         <div class="actual-date-form">
           <%= f.label :date, "確定する日付", class: "regi-label-name" %>
           <%= f.date_field :date, class: "regi-form" %>
@@ -17,7 +17,7 @@
             </tr>
           </thead>
           <tbody>
-            <% @actual_moneies.collection.each do |actual_money| %>
+            <% @actual_monies.collection.each do |actual_money| %>
               <%= fields_for "actual_money[]", actual_money do |field| %>
                 <tr>
                   <td><%= field.label :money_place, "#{actual_money.money_place.name}", class: "regi-label-name" %></td>

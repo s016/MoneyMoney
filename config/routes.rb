@@ -27,5 +27,5 @@ Rails.application.routes.draw do
   resources :results, only: [:index] do
     get 'open_item', on: :member
   end
-  resources :actual_moneies, only: [:new, :create]
+  resources :actual_monies, only: [:new, :create]
 end

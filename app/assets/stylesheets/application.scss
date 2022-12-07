@@ -26,7 +26,6 @@
 .result-box {
   display: flex;
   flex-direction: row;
-  position: relative;
 }
 
 .result-item-name-box {
@@ -34,7 +33,7 @@
   flex-flow: column;
   position: sticky;
   left: 0;
-  z-index: 2;
+  z-index: 444;
 }
 
 .item-names {
@@ -50,7 +49,6 @@
 .result-value-box {
   display: flex;
   flex-flow: column;
-
 }
 
 .result-item {

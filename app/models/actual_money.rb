@@ -10,22 +10,22 @@ class ActualMoney < ApplicationRecord
   def invalid_before_confirm_date
     if self.date.present?
       regi_confirm_date = self.date
-      latest_confirm_date =  ActualMoney.where(user_id: self.user.id).present? ? self.user.actual_moneies.maximum(:date) : ActualMoney::NONE_CONFIRM_DATE
+      latest_confirm_date =  ActualMoney.where(user_id: self.user.id).present? ? self.user.actual_monies.maximum(:date) : ActualMoney::NONE_CONFIRM_DATE
       if regi_confirm_date <= latest_confirm_date
         errors.add(:date, "一番最新の確定した日付は#{latest_confirm_date}です。#{latest_confirm_date}で確定してください。")
       end
     end
   end
 
-  def self.all_save(data_into_moneies)
+  def self.all_save(data_into_monies)
     ActualMoney.transaction do
-      data_into_moneies.map do |data_into_money|
+      data_into_monies.map do |data_into_money|
         data_into_money.save!
       end
     end
       return true
     rescue
-      logger.debug(data_into_moneies)
+      logger.debug(data_into_monies)
       return false
   end
 end
