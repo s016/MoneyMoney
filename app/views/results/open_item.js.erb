@@ -1,0 +1,3 @@
+$("#<%= j(@item_id)%>").after("<%= j(render partial: "results/detail_item_names", locals: { detail_item_names: @detail_item_names, item_id: @item_id}) %>");
+
+$("#item-id-<%= j(@item_id)%>").after("<%= j(render partial: "results/detail_items", locals: {detail_items: @detail_items, item_id: @item_id}) %>");

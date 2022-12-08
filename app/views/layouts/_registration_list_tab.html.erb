@@ -1,14 +1,6 @@
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <%= link_to "収入", incomes_income_and_payments_path, class: "nav-link"%>
-  </li>
-  <li class="nav-item">
-    <%= link_to "支払", payments_income_and_payments_path, class: "nav-link"%>
-  </li>
-  <li class="nav-item">
-    <%= link_to "詳細項目", detail_items_path, class: "nav-link"%>
-  </li>
-  <li class="nav-item">
-    <%= link_to "お金の場所", money_places_path, class: "nav-link"%>
-  </li>
-</ul>
+<nav class="navbar justify-content-start regi-menu">
+    <%= link_to "収入", incomes_income_and_payments_path, class: "col-2 regi-menu-item"%>
+    <%= link_to "支払", payments_income_and_payments_path, class: "col-2 regi-menu-item"%>
+    <%= link_to "詳細項目", detail_items_path, class: "col-2 regi-menu-item"%>
+    <%= link_to "お金の場所", money_places_path, class: "col-2 regi-menu-item"%>
+</nav>
