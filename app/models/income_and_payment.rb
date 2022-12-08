@@ -33,9 +33,9 @@ class IncomeAndPayment < ApplicationRecord
   end
 
   def invalid_before_confirm_date
-    if self.user.actual_moneies.present? && self.date.present?
+    if self.user.actual_monies.present? && self.date.present?
       income_and_payment_date = self.date
-      confirm_date =  ActualMoney.where(user_id: self.user.id).present? ? self.user.actual_moneies.maximum(:date) : ActualMoney::NONE_CONFIRM_DATE
+      confirm_date =  ActualMoney.where(user_id: self.user.id).present? ? self.user.actual_monies.maximum(:date) : ActualMoney::NONE_CONFIRM_DATE
       if income_and_payment_date <= confirm_date
         errors.add(:date, "確定した日付より前の日付は登録できません。")
       end

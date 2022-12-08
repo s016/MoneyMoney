@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "ActualMoneies", type: :request do
+RSpec.describe "Actualmonies", type: :request do
   let(:user) { create(:user) }
   describe "GET /new" do
     context "ログインしていないユーザーの場合" do

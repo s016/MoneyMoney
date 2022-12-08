@@ -1,5 +1,5 @@
 #初期データ用のユーザー
-user = User.create!(id:0, name:"master_user", email:"master_user@masteruser.com", 
+user = User.create!(id:0, name:"master_user", email:"master_user@masteruser.com",
                     password:"master_user_password")
 
 #初期データ用の大項目
