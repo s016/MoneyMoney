@@ -1,6 +1,6 @@
 #初期データ用のユーザー
-user = User.create!(id:0, name:"master_user", email:"master_user@masteruser.com",
-                    password:"master_user_password")
+user = User.create!(id:0, name:"test_user", email:"test_user@testuser.com",
+                    password:"test_user_password")
 
 #初期データ用の大項目
 income_items = ["給料", "ボーナス", "売上の回収", "その他"]
@@ -16,14 +16,14 @@ end
 
 #動作確認用のお金の場所
 3.times do |n|
-  user.money_places.create!(name: "test_money_place#{n}" , date: Date.new(2022,11,1) + n, amount: 100)
+  user.money_places.create!(name: "お金#{n}" , date: Date.new(2022,11,1) + n, amount: 100)
 end
 
 #動作確認用の詳細項目
 items = Item.all
 items.each do |item|
   3.times do |n|
-    item.detail_items.create!(user_id: 0, name: "detail_#{item.name}#{n}", income_or_payment: item.income_or_payment)
+    item.detail_items.create!(user_id: 0, name: "詳細#{item.name}#{n}", income_or_payment: item.income_or_payment)
   end
 end
 
@@ -35,7 +35,8 @@ items = Item.where(income_or_payment: IncomeAndPayment::INCOMES)
                                      detail_item_id: item.detail_items.first.id,
                                      money_place_id: user.money_places.first.id,
                                      month_loop: true,
-                                     date: Date.today + n, amount: 100,
+                                     date: Date.new(2022,11,1) + n,
+                                     amount: 1342,
                                      income_or_payment: IncomeAndPayment::INCOMES
                                      )
   end
@@ -49,7 +50,8 @@ items = Item.where(income_or_payment: IncomeAndPayment::PAYMENTS)
                                      detail_item_id: item.detail_items.first.id,
                                      money_place_id: user.money_places.first.id,
                                      month_loop: true,
-                                     date: Date.today + n, amount: 100,
+                                     date: Date.new(2022,11,1) + n,
+                                     amount: 111,
                                      income_or_payment: IncomeAndPayment::PAYMENTS
                                      )
   end
