@@ -6,8 +6,8 @@ RSpec.describe Result, type: :model do
   let!(:latest_date) { create(:money_place, :latest_date, user: user) }
   
   describe "result_date" do
-    it "3年後の月末を返すこと" do
-      expect(Result.result_date(user).last).to eq Date.new(2025,11,30)
+    it "6ヶ月後の月末を返すこと" do
+      expect(Result.result_date(user).last).to eq Date.new(2023,5,31)
     end
 
     it "日付が古いお金の場所のから計算の対象期間を返していること" do
